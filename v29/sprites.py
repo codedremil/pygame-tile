@@ -127,7 +127,8 @@ class Player(pg.sprite.Sprite):
         keys = pg.key.get_pressed()
         
         # part29: si une touche est pressée, la souris est annulée
-        if any(keys):
+        #if any(keys):
+        if keys:
             self.target_x = self.target_y = None
         
         # maintenant les touches RIGHT et LEFT effectuent la rotation !

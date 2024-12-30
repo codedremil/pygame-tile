@@ -233,7 +233,7 @@ class Game:
                 self.effects_sounds['health_up'].play()
                 self.player.add_health(HEALTH_PACK_AMOUNT)
                 
-            # on prend l'arme si on ne l'a pas déjà    
+            # on prend l'arme si on ne l'a pas deja   
             if hit.type == 'shotgun' and 'shotgun' not in self.player.weapons:
                 hit.kill()
                 self.effects_sounds['gun_pickup'].play()
@@ -253,7 +253,7 @@ class Game:
                 self.effects_sounds['gun_pickup'].play()
                 self.player.armour = PLAYER_ARMOUR
                 
-            # les bullets s'ajoutent à l'arme courante, les box à toutes les armes
+            # les bullets s'ajoutent a l'arme courante, les box a toutes les armes
             if hit.type == 'bullets':
                 if self.player.ammo[self.player.weapon] < WEAPONS[self.player.weapon]['max_ammo']:
                     hit.kill()
@@ -293,8 +293,8 @@ class Game:
                 if self.player.health <= 0:
                     self.playing = False    # fin de jeu 
                
-                # en décalant ces lignes le joueur peut passer à travers
-                # les zombies donc il peut s'échapper
+                # en decalant ces lignes le joueur peut passer a travers
+                # les zombies donc il peut s'echapper
                 # quand le joueur est touche par un zombie, il recule 
                 if hits:
                     self.player.pos += vec(MOB_KNOCKBACK, 0).rotate(-hits[0].rot)
@@ -452,7 +452,7 @@ class Game:
                     self.night = not self.night
                
             # part29/1: on ne peut pas mettre ce test dans Player.get_keys() car
-            # les événements sont principalement interceptés ici
+            # les evenements sont principalement interceptes ici
             if event.type == pg.MOUSEWHEEL:
                 print(event)  # event.y indique up (1) ou down (-1)
                 
@@ -463,7 +463,7 @@ class Game:
                     #self.player.target_x = event.pos[0]
                     #self.player.target_y = event.pos[1]
                     
-                    # Bug: on doit corriger par la position de la caméra !
+                    # Bug: on doit corriger par la position de la camera !
                     self.player.target_x, self.player.target_y = self.camera.shift(event.pos[0], event.pos[1])
                     
 
